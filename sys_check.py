@@ -13,7 +13,8 @@ def check_reboot():
 
 
 def free_mem():
-    # placeholder for free memory check
+    # free memory display
+    print(os.system("free"))
     return True
 
 
@@ -76,4 +77,5 @@ def main():
     sys.exit(0)  # doesn't return error msg
 
 
+free_mem()
 main()
