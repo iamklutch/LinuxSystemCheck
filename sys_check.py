@@ -20,14 +20,18 @@ def free_mem():
 def check_for_network():
     """returns True if no network"""
     try:
+        print("Checking network status...", end="")
         socket.gethostbyname("google.com")
+        print("Success!")
         return False
     except:
+        print("Problem with network")
         return True
 
 
 def check_cpu_high():
     # returns True if CPU is overburdened
+    print("Checking CPU usage...")
     return psutil.cpu_percent(1) > 75
 
 
@@ -38,6 +42,7 @@ def check_disk_full(disk, min_gb, min_percent):
     percent_free = 100 * du.free / du.total
     # convert to GB
     gigabytes_free = du.free / 2**30
+    print("Disk free space: ", gigabytes_free, "GB")
     if percent_free < min_percent or gigabytes_free < min_gb:
         return True
     return False
