@@ -62,6 +62,7 @@ def main():
         (check_cpu_high, "cpu use over 75%"),
         (check_root_full, "Root Partition has less than 2GB available"),
     ]
+    free_mem()  # display free memory first
     everything_ok = True
     for check, msg in checks:
         # uses the first item in the tuple to run a check and if True return msg
@@ -77,5 +78,4 @@ def main():
     sys.exit(0)  # doesn't return error msg
 
 
-free_mem()
 main()
