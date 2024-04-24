@@ -13,8 +13,8 @@ def check_reboot():
 
 
 def free_mem():
-    # free memory display
-    print(os.system("free"))
+    # free memory display - human readable
+    print(os.system("free -h"))
     return True
 
 
